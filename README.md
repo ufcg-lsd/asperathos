@@ -19,7 +19,7 @@ The Asperathos modules are implemented following a **plugin architecture**, prov
 
 This independent architecture allot the combination of different approaches in the same context. For example: running a containerized distributed application using an specific Manager plugin, it is possible to write a Monitor plugin to gather metrics about application progress and another to gather metrics from resources usage at the same time; it is also possible to Write two different Controller plugins where one can watch the resources usage measurements (published by one of the monitor plugins) from VMs to add/kill instances in the cluster, and another plugin to watch the application progress and add more container replicas to speed up the processing of tasks.
 
-It is also possible to easily add external or new components, like: authenticators, authorizers, validators, and so on.
+It is also possible to easily add external or new components, like: authenticators, authorizers, validators, and so on!
 
 ## Requirements
 * Python 2.7
