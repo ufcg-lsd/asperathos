@@ -1,5 +1,15 @@
-# asperathos
+# Asperathos
+
+<div style="width:20px;height:20px;"><img src ="https://pbe.lsd.ufcg.edu.br/wp-content/uploads/sites/5/2018/10/logoasperathos.png" class="center"/></div>
+
+
+
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+Asperathos is part of Privacy by Evidence (PbE) which is an initiative to improve confidence in applications that handle sensitive data, you can read more about this initiative in: [PbE](https://pbe.lsd.ufcg.edu.br/) 
+
+
 
 ## Overview
 Asperathos is a platform to facilitate the deployment and control of applications running in cloud environments. For example, it can provide Quality of Service (QoS) by controlling resources allocated during runtime. Nevertheless, in contrast to other orchestration tools, such as Kubernetes itself or OpenStack Heat, it can be configured to consider application specific metrics and to actuate in a customized fashion.
