@@ -39,7 +39,7 @@ It is also possible to easily add external or new components, like: authenticato
 <img src="https://www.atmosphere-eubrazil.eu/sites/all/themes/theme1/logo.png" alt="drawing" width="45%"/>
 
 
-Asperathos is being used and expanded in other partner projects such as: LNCC, SecureCloud and Atmosphere.
+Asperathos is being used and expanded in our partners: LNCC, SecureCloud and Atmosphere.
 
 
 
