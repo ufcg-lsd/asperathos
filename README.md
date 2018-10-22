@@ -23,10 +23,12 @@ It is also possible to easily add external or new components, like: authenticato
 
 # Case studies
 
-<div style="width:50px;height:50px;"><img src ="https://www.lncc.br/images/logo_lncc.png" class="center"/></div>
+<div style="width:20px;height:20px;"><img src ="https://www.lncc.br/images/logo_lncc.png" class="center"/></div>
 
+The CICN from the LNCC in Brazil are using Asperathos in R&D projects, to provide Quality of Service (QoS) based on user-specific metrics.
 
-The CICN from the LNCC in Brazil are using asperathos in R&D projects, to provide Quality of Service (QoS) based on specific  metrics to ensure user-specific metrics.
+On this project, new Monitor and Controller plugins were developed to help using Kubernetes as an orchestrator for running secure batch workload applications with deadline.
+
 
 ## Requirements
 * Python 2.7
