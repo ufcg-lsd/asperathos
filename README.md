@@ -1,7 +1,6 @@
 # Asperathos
 
-<div style="width:20px;height:20px;"><img src ="https://pbe.lsd.ufcg.edu.br/wp-content/uploads/sites/5/2018/10/logoasperathos.png" class="center"/></div>
-
+<img src="https://pbe.lsd.ufcg.edu.br/wp-content/uploads/sites/5/2018/10/logoasperathos.png" alt="drawing" width="55%"/>
 
 
 
@@ -36,10 +35,12 @@ It is also possible to easily add external or new components, like: authenticato
 
 
 <img src="https://www.lncc.br/images/logo_lncc.png" alt="drawing" width="45%"/>
+<img src="https://www.securecloudproject.eu/assets/img/logo.png" alt="drawing" width="45%"/>
+<img src="https://www.atmosphere-eubrazil.eu/sites/all/themes/theme1/logo.png alt="drawing" width="45%"/>
 
-The CICN from the LNCC in Brazil are using Asperathos in R&D projects, to provide Quality of Service (QoS) based on user-specific metrics.
 
-On this project, new Monitor and Controller plugins were developed to help using Kubernetes as an orchestrator for running secure batch workload applications with deadline.
+Asperathos is being used and expanded in other partner projects such as: LNCC, SecureCloud and Atmosphere.
+
 
 
 ## Requirements
