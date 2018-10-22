@@ -33,7 +33,8 @@ It is also possible to easily add external or new components, like: authenticato
 
 # Case studies
 
-<div style="width:20px;height:20px;"><img src ="https://www.lncc.br/images/logo_lncc.png" class="center"/></div>
+
+<img src="https://www.lncc.br/images/logo_lncc.png" alt="drawing" width="45%"/>
 
 The CICN from the LNCC in Brazil are using Asperathos in R&D projects, to provide Quality of Service (QoS) based on user-specific metrics.
 
