@@ -21,6 +21,13 @@ This independent architecture allot the combination of different approaches in t
 
 It is also possible to easily add external or new components, like: authenticators, authorizers, validators, and so on.
 
+# Case studies
+
+<div style="width:100px;height:100px;"><img src ="https://www.lncc.br/images/logo_lncc.png" class="center"/></div>
+
+
+The CICN from the LNCC in Brazil are using asperathos in R&D projects.
+
 ## Requirements
 * Python 2.7
 * Linux packages: python-dev and python-pip
