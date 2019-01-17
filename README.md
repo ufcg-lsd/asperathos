@@ -35,7 +35,7 @@ It is also possible to easily add external or new components, like: authenticato
 
 
 <img src="https://www.lncc.br/images/logo_lncc.png" alt="drawing" width="45%"/>
-<img src="https://www.securecloudproject.eu/assets/img/logo.png" alt="drawing" width="45%"/>
+<img src="https://www.lsd.ufcg.edu.br/wp-content/uploads/2019/01/securecloud-logo.png" alt="drawing" width="45%"/>
 <img src="https://www.atmosphere-eubrazil.eu/sites/all/themes/theme1/logo.png" alt="drawing" width="45%"/>
 <img src="https://www.eubrasilcloudforum.eu/sites/default/files/EUBra-BIGSEA_logo_piccolo.jpg" alt="drawing" width="45%"/>
 
