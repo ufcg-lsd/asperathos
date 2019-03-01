@@ -15,7 +15,7 @@ Asperathos is a platform to facilitate the deployment and control of application
 
 The architecture from Asperathos is depicted in the following figure. It is composed of three main modules: _(i)_ the **Manager** is the entry point for the user and is responsible for receiving an application submission, triggering all other steps; _(ii)_ the **Monitor** gather, transforme and publish metrics collected from applications (e.g., the application progress) or environment resources (e.g., CPU usage); _(iii)_ the **Controller** is the component that adjusts the amount of allocated resources dedicated to an application.
 
-<div style="width:100px;height:100px;"><img src ="http://picresize.com/images/rsz_11architecture.png" class="center"/></div>
+<div style="width:400px;height:300px;"><img src ="imgs/asperathos-archtecture.png" class="center"/></div>
 
 Each module above can be customized by plugins. For example, a plugin to deploy the application can be specified in the Manager, another to define the application specific metric can be specified in the Monitor, another to control the actuation logic could be configured in the Controller, and so on.
 
