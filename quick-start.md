@@ -4,7 +4,7 @@ The purpose of this guide is to demonstrate how to setup all Asperathos componen
 
 ### How to deploy an Asperathos instance?
 
-#### I. Deploying Manager component
+#### I. Configuring Manager component
 
 1. Using a exclusive terminal, clone Asperathos-Manager repository:
 
@@ -19,13 +19,7 @@ $ cd asperathos-manager/
 $ ./pre-install.sh
 ```
 
-3. Run the Asperathos-Manager service:
-
-```bash
-$ ./run.sh
-```
-
-#### II. Deploying Monitor component
+#### II. Configuring Monitor component
 
 1. Using a exclusive terminal, clone Asperathos-Monitor repository:
 
@@ -40,13 +34,7 @@ $ cd asperathos-monitor/
 $ ./pre-install.sh
 ```
 
-3. Run the Asperathos-Monitor service :
-
-```bash
-$ ./run.sh
-```
-
-#### III. Deploying Controller component
+#### III. Configuring Controller component
 
 1. Using a exclusive terminal, clone Asperathos-Controller repository:
 
@@ -61,13 +49,7 @@ $ cd asperathos-controller/
 $ ./pre-install.sh
 ```
 
-3. Run the Asperathos-Controller service:
-
-```bash
-$ ./run.sh
-```
-
-#### IV. Deploying Visualizer component (Optional)
+#### IV. Configuring Visualizer component
 
 1. Using a exclusive terminal, clone Asperathos-Visualizer repository:
 
@@ -82,15 +64,9 @@ $ cd asperathos-visualizer/
 $ ./pre-install.sh
 ```
 
-3. Run the Asperathos-Visualizer service:
-
-```bash
-$ ./run.sh
-```
-
 ### How to configure Asperathos components to execute the KubeJobs plugin?
 
-#### I. Configure the Manager component
+#### I. Configure the Manager component to run KubeJobs plugin
 
 1. Access the Asperathos-Manager folder:
 
@@ -129,7 +105,7 @@ Description of the required variables:
 path/to/asperathos-manager$ ./run.sh
 ```
 
-#### II. Configure the Monitor component
+#### II. Configure the Monitor component to run KubeJobs plugin
 
 1. Access the Asperathos-Monitor folder:
 
@@ -157,7 +133,7 @@ k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf
 path/to/asperathos-monitor$ ./run.sh
 ```
 
-#### III. Configure the Controller component
+#### III. Configure the Controller component to run KubeJobs plugin
 
 1. Access the Asperathos-Controller folder:
 
@@ -196,7 +172,7 @@ Description of the required variable:
 path/to/asperathos-controller$ ./run.sh
 ```
 
-#### IV. Configure the Visualizer component
+#### IV. Configure the Visualizer component to run KubeJobs plugin
 
 1. Access the Asperathos-Visualizer folder:
 
