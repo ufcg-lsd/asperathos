@@ -1,6 +1,90 @@
 # Asperathos's Quick Start
 
 The purpose of this guide is to demonstrate how to setup all Asperathos components.
+### How to create a Kubernetes cluster.
+
+1. The following [guide](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/) 
+   retrieve from official Kubernetes documentation can be used to 
+   support the deployment of the cluster. The config file generate by this tutorial will be used
+   in the following steps.
+
+### How to create a docker image to consume a kubejobs workload?
+
+#### I. Creating a Python application that knows to consume the redis workload:
+
+1. The application must know how to use the redis API.
+   In Python, the application looks like this:
+   (In this example this job will just print the content of the workload in the console)
+```
+import redis
+import requests
+import os
+
+# Asperathos will give the redis host as enviroment variable named REDIS_HOST.
+# The defalt port of redis is 6379.
+r = redis.StrictRedis(host=os.environ['REDIS_HOST'],
+                      port=6379,
+                      db=0)
+
+# r.len("job") returns the length of the queue "job" in the redis.
+while r.llen("job") > 0:
+
+    # r.rpoplpush('job', 'job:processing')
+    # do dequeue in 'job' and enqueue in 'job:processing'
+    # and return the content that was moved.
+    link = r.rpoplpush('job', 'job:processing')
+
+    content = requests.get(link).text
+
+    print(content)
+
+```
+
+#### II. Creating a requirements file.
+
+1. It is required to make a requirements file with all necessary imports from the application.
+   In this example the application need the redis and requests modules.
+   The file must be like this:
+
+```
+redis
+requests
+```
+#### III. Creating a Dockerfile:
+
+1. In the same path that the application is contained create a file named Dockerfile 
+   with the following content:
+
+```
+FROM python:2.7
+COPY requirements.txt .
+COPY application.py  .
+RUN pip install -r requirements.txt
+```
+
+#### IV. Building, tagging and pushing the image.
+The image name will be 'quickstart' and the tag will be 'demo'.
+
+1. To build the image run the following command:
+   
+```
+docker build -t quickstart:demo .
+```
+
+2. To create a tag run the following command:
+   The repository variable represent a public repository 
+   as dockerhub or a private repository.
+   (If private, it's also required to specify the port)
+
+```
+docker tag quickstart:demo <repository>/quickstart:demo
+```
+
+3. To push to the repository run the following command:
+
+```
+docker push <repository>/quickstart:demo
+```
 
 ### How to deploy an Asperathos instance?
 
