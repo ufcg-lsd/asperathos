@@ -123,6 +123,14 @@ plugins = kubejobs
 debug = True
 retries = 5
 
+[monasca]
+monasca_endpoint = https://<monasca_url>:<monaca_port>/<version>
+username = user
+password = password
+project_name = demo
+auth_url = https://<monasca_url>:<monaca_port>/<version>/
+api_version = version
+
 [kubejobs]
 k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf
 ```
@@ -208,7 +216,7 @@ token =
 [influxdb]
 name = InfluxDB
 type = influxdb
-url = https://influxdb-url
+url = https://influxdb-url # Optional value, gets the Ip of any node in the cluster if not specified
 access = proxy
 ```
 
@@ -285,6 +293,12 @@ path/to/asperathos-visualizer$ ./run.sh
    }
 }
 ```
+
+The 'cmd' needs to contain the command that will launch the file that will consumes the workload, in this tutorial will be '"python", "application.py"'.
+The 'img-url:port' variable will be the image generated in the first tutorial of this guide.
+The 'workload-url' is a url containing a text file with a list a urls, each of those containing text charatecters.
+The 'datasource-type' will be 'influxdb' in this example.
+The 'env_vars' variable needs to contain any environment variables that the file contained in the image generated in the first tutorial of this guide will use.
 
 2.  Then, in a different terminal, run the following command to submit the job to the Manager component.
 
