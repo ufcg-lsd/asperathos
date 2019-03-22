@@ -292,3 +292,17 @@ path/to/asperathos-visualizer$ ./run.sh
 $ cd path/to/kubejobs.json
 $ curl -H "Content-Type: application/json" --data @kubejobs-job.json http://0.0.0.0:1500/submissions
 ```
+
+### How collect the visualization URL of a specific job?
+
+1. After a job be launched with the Visualization flag setted to ‘enable’, it is possible to retrieve the visualization URL to keep track of the job progress at execution time. The following GET request to the Visualizer api can be used to retrieve this information. 
+
+```bash
+$ curl visualizer-ip:port/visualizing/id
+```
+
+Where:
+
+* **visualizer-ip**: The IP where the visualizer service are running.
+* **port**: The port where the visualizer service are answering from.
+* **id**: The ID of the job launched.
