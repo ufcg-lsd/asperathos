@@ -10,7 +10,7 @@ The purpose of this guide is to demonstrate how to setup all Asperathos componen
 
 ### How to create a docker image to consume a kubejobs workload?
 
-#### I. Creating a Python application that knows to consume the redis workload:
+#### I. Creating a Python application that knows how to consume the redis workload:
 
 1. The application must know how to use the redis API.
    In Python, the application looks like this:
@@ -174,7 +174,7 @@ optimizer_url = http://0.0.0.0:5003
 authorization_url = http://0.0.0.0:5004
 
 [kubejobs]
-k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf
+k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf as default
 redis_ip = 10.0.0.1 # Optional value, gets the Ip of any node in the cluster if not specified
 ```
 
@@ -216,7 +216,7 @@ auth_url = https://<monasca_url>:<monaca_port>/<version>/
 api_version = version
 
 [kubejobs]
-k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf
+k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf as default
 ```
 
 3. Run the Asperathos-Monitor service:
@@ -251,7 +251,7 @@ auth_url = https://monasca-url:port/v3/
 api_version = 2_0
 
 [k8s_replicas]
-k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf
+k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf as default
 ```
 
 Description of the required variable:
@@ -284,7 +284,7 @@ debug = true
 retries = 5
 
 [k8s-grafana]
-k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf
+k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf as default
 visualizer_type = k8s-grafana
 visualizer_ip = 10.11.5.62 # Optional value, gets the Ip of any node in the cluster if not specified
 
@@ -378,11 +378,15 @@ path/to/asperathos-visualizer$ ./run.sh
 }
 ```
 
-The 'cmd' needs to contain the command that will launch the file that will consumes the workload, in this tutorial will be '"python", "application.py"'.
-The 'img-url:port' variable will be the image generated in the first tutorial of this guide.
-The 'workload-url' is a url containing a text file with a list a urls, each of those containing text charatecters.
-The 'datasource-type' will be 'influxdb' in this example.
-The 'env_vars' variable needs to contain any environment variables that the file contained in the image generated in the first tutorial of this guide will use.
+* The **cmd** needs to contain the command that will launch the file that will consumes the workload, in this tutorial will be '"python", "application.py"'.
+
+* The **img-url:port** variable will be the image generated in the first tutorial of this guide.
+
+* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters.
+
+* The **datasource-type** will be 'influxdb' in this example.
+
+* The **env_vars** variable needs to contain any environment variables that the file contained in the image generated in the first tutorial of this guide will use.
 
 2.  Then, in a different terminal, run the following command to submit the job to the Manager component.
 
