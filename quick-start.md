@@ -352,7 +352,6 @@ path/to/asperathos-visualizer$ ./run.sh
       "config_id": "id",
       "control_plugin": "kubejobs",
       "control_parameters": {  
-         "max_size": 10,
          "actuator": "k8s_replicas",
          "check_interval": 5,
          "trigger_down": 0,
