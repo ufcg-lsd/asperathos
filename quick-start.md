@@ -381,8 +381,7 @@ path/to/asperathos-visualizer$ ./run.sh
 
 * The **img-url:port** variable will be the image generated in the first tutorial of this guide.
 
-
-* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters. These are used to fill the work queue provided by Asperathos, the worker will consume this queue as described in the first tutorial For this tutorial you can use this workload : [https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt.](https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt) This file contains three links, each one is a string with one of the following phrases.
+* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters. These are used to fill the work queue provided by Asperathos, the worker will consume this queue as described in the first tutorial For this tutorial you can use this workload : [https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt.](https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt) This file contains three links, each link contains a string with one of the following phrases.
 ```
 Asperathos is amazing!
 
