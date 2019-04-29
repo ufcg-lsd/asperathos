@@ -285,7 +285,6 @@ retries = 5
 
 [k8s-grafana]
 k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf as default
-visualizer_type = k8s-grafana
 visualizer_ip = 10.11.5.62 # Optional value, gets the Ip of any node in the cluster if not specified
 
 [monasca]
@@ -382,7 +381,15 @@ path/to/asperathos-visualizer$ ./run.sh
 
 * The **img-url:port** variable will be the image generated in the first tutorial of this guide.
 
-* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters.
+
+* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters. These are used to fill the work queue provided by Asperathos, the worker will consume this queue as described in the first tutorial For this tutorial you can use this workload : [https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt.](https://raw.githubusercontent.com/joseims/workload-example/master/workload_url.txt) This file contains three links, each one is a string with one of the following phrases.
+```
+Asperathos is amazing!
+
+Kubejobs is the best plugin
+
+The workload-url is a queue of urls
+```
 
 * The **datasource-type** will be 'influxdb' in this example.
 
