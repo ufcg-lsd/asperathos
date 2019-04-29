@@ -8,13 +8,13 @@ The purpose of this guide is to demonstrate how to setup all Asperathos componen
    support the deployment of the cluster. The config file generate by this tutorial will be used
    in the following steps.
 
-### How to create a docker image to consume a kubejobs workload?
+### How to create a docker image to consume a KubeJobs workload?
 
 #### I. Creating a Python application that knows how to consume the redis workload:
 
 1. The application must know how to use the redis API.
-   In Python, the application looks like this:
-   (In this example this job will just print the content of the workload in the console)
+   As an example, take the following simple worker. It consume an item from redis, which is a URL. The worker then downloads the content of the URL and prints to stdout.
+   In Python, the application would look like this:
 ```
 import redis
 import requests
@@ -26,16 +26,19 @@ r = redis.StrictRedis(host=os.environ['REDIS_HOST'],
                       port=6379,
                       db=0)
 
-# r.len("job") returns the length of the queue "job" in the redis.
+# r.llen("job") returns the length of the queue "job" in the redis.
 while r.llen("job") > 0:
 
-    # r.rpoplpush('job', 'job:processing')
-    # do dequeue in 'job' and enqueue in 'job:processing'
-    # and return the content that was moved.
-    content = r.rpoplpush('job', 'job:processing')
+    # `rpoplpush` moves one item from our work queue
+    # to an auxiliary queue, for items being processed,
+    # returning its value
+    item_url = r.rpoplpush('job', 'job:processing')
 
+    # as it is a link, download the content
+    content = requests.get(item_url).text
+
+    # print to stdout
     print(content)
-
 ```
 
 #### II. Creating a requirements file.
@@ -379,12 +382,7 @@ path/to/asperathos-visualizer$ ./run.sh
 
 * The **img-url:port** variable will be the image generated in the first tutorial of this guide.
 
-* The **workload-url** is a url containing a text file with a list a urls, each of those containing text charatecters. These are used to fill the work queue provided by Asperathos, the worker will consume this queue as described in the first tutorial For this tutorial you can use this workload : [https://raw.githubusercontent.com/joseims/workload-example/master/workload-text-example.txt.](https://raw.githubusercontent.com/joseims/workload-example/master/workload-text-example.txt) This file contains three phrases:
-```
-Asperathos is amazing!
-Kubejobs is the best plugin
-The workload-url is a queue of urls
-```
+* The **workload-url** is a URL to a text file containing all the work items, one per line. Asperathos pushes these values to a work queue which the workers will later consume. For our simple worker that just downloads the contents of a URL and prints them to stdout, consider the `workload-url` example: [https://gist.githubusercontent.com/clenimar/9ecb14e2346af72763303a9957c94ea3/raw/1c014690f10c79bb9fe2165360ee92c106485ee7/workload-url.txt](https://gist.githubusercontent.com/clenimar/9ecb14e2346af72763303a9957c94ea3/raw/1c014690f10c79bb9fe2165360ee92c106485ee7/workload-url.txt). It contains URLs to text files containing phrases that are going to be printed.
 
 * The **datasource-type** will be 'influxdb' in this example.
 
