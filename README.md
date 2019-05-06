@@ -1,6 +1,6 @@
 # Asperathos
 
-<img src="https://pbe.lsd.ufcg.edu.br/wp-content/uploads/sites/5/2018/10/logoasperathos.png" alt="drawing" width="45%"/>
+<img src="https://raw.githubusercontent.com/ufcg-lsd/asperathos/master/imgs/logo-asperathos.png" alt="drawing" width="45%"/>
 
 
 
