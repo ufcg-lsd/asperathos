@@ -30,7 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Unused legacy plugins that were not working anymore
 
 #
-### This are the tags you should update the changelog
+### This are the tags you should use when updating the changelog
 -   `Added` for new features.
 -   `Changed` for changes in existing functionality.
 -   `Deprecated` for soon-to-be removed features.
