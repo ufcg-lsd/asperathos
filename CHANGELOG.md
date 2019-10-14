@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-## Chameleon - 3-10-2019
+## Chameleon -10-10-2019
 ### Added
 - Detailed job status
 - Complete job report
@@ -18,8 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
       - Manager
       - Visualizer
 - Quickstart updated, now with docker-compose
-###Fixed
+### Fixed
 - Monitor component sleep time was fixed
+- Monitor is now presenting the report properly
 ## Bootes - 16-08-2019
 ### Added
 - New plugin architecture that allows for the addition of custom plugins for the following components:
