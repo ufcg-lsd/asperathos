@@ -7,30 +7,40 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+## Chameleon - 3-10-2019
+### Added
+- Detailed job status
+- Complete job report
+- Deleting old job's asynchronously
+- Integration tests for scalability and job report
+### Changed
+- The following components are now compatible with python3:
+      - Manager
+      - Visualizer
+- Quickstart updated, now with docker-compose
+###Fixed
+- Monitor component sleep time was fixed
 ## Bootes - 16-08-2019
 ### Added
-- New plugin architecture for the following Asperathos components:
+- New plugin architecture that allows for the addition of custom plugins for the following components:
    - Monitor
    - Manager
    - Visualizer
    - Controller
-- Persistent plugins for the following Asperathos components:
+- Plugin persistence for the following components:
    - Monitor
    - Manager
    - Visualizer
    - Controller
-- PID scalling strategy at Asperathos Controller 
-
-- New tests for kubejobs plugin at Asperathos Monitor
+- PID scaling strategy on the Controller component
+- New tests for `kubejobs` plugin at Asperathos Monitor
 
 ### Changed
-- Refactoring of the kubejobs plugin at Asperathos Manager
+- Refactoring of the `kubejobs` plugin of the Manager component
 
 ###  Removed
-- Unused legacy plugins that were not working anymore
-
-#
-### This are the tags you should use when updating the changelog
+- Unused legacy plugins that are not supported at the moment
+### This are the tags you should update the changelog
 -   `Added` for new features.
 -   `Changed` for changes in existing functionality.
 -   `Deprecated` for soon-to-be removed features.
