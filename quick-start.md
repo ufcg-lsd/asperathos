@@ -86,251 +86,29 @@ docker tag quickstart:demo <repository>/quickstart:demo
 ```
 docker push <repository>/quickstart:demo
 ```
-
 ### How to deploy an Asperathos instance?
 
-#### I. Configuring Manager component
-
-1. Using a exclusive terminal, clone Asperathos-Manager repository:
-
+#### I. Install Docker and Docker Compose
 ```bash
-$ git clone https://github.com/ufcg-lsd/asperathos-manager 
-$ cd asperathos-manager/
+curl https://get.docker.com/ | bash
+apt-get install docker-compose
 ```
-
-2. Run the ‘pre-install.sh’ script that will install the requirements:
-
+#### II. Clone Asperathos Compose repository
 ```bash
-$ ./pre-install.sh
+git clone https://github.com/ufcg-lsd/asperathos-compose
+cd asperathos-compose
 ```
-
-#### II. Configuring Monitor component
-
-1. Using a exclusive terminal, clone Asperathos-Monitor repository:
-
+#### III. Set your KUBECONFIG env var
 ```bash
-$ git clone https://github.com/ufcg-lsd/asperathos-monitor 
-$ cd asperathos-monitor/
+export KUBECONFIG=/path/to/your/kube/config
 ```
-
-2. Run the ‘pre-install.sh’ script that will install the requirements:
-
+#### IV. Build the images
 ```bash
-$ ./pre-install.sh
+./build.sh
 ```
-
-#### III. Configuring Controller component
-
-1. Using a exclusive terminal, clone Asperathos-Controller repository:
-
+#### V. Run compose
 ```bash
-$ git clone https://github.com/ufcg-lsd/asperathos-controller 
-$ cd asperathos-controller/
-```
-
-2. Run the ‘pre-install.sh’ script that will install the requirements:
-
-```bash
-$ ./pre-install.sh
-```
-
-#### IV. Configuring Visualizer component
-
-1. Using a exclusive terminal, clone Asperathos-Visualizer repository:
-
-```bash
-$ git clone https://github.com/ufcg-lsd/asperathos-visualizer 
-$ cd asperathos-visualizer/
-```
-
-2. Run the ‘pre-install.sh’ script that will install the requirements:
-
-```bash
-$ ./pre-install.sh
-```
-
-### How to configure Asperathos components to execute the KubeJobs plugin?
-
-#### I. Configure the Manager component to run KubeJobs plugin
-
-1. Access the Asperathos-Manager folder:
-
-```bash
-$ cd path/to/asperathos-manager
-```
-
-2. Modify the file ‘broker.cfg’ with the required informations to run the KubeJobs plugin. You can check below an template of how the ‘broker.cfg’ file should look like:
-
-```
-[general]
-host = 0.0.0.0
-port = 1500
-plugins = kubejobs
-
-[services]
-controller_url = http://0.0.0.0:5000
-monitor_url = http://0.0.0.0:5001
-visualizer_url = http://0.0.0.0:5002
-optimizer_url = http://0.0.0.0:5003
-authorization_url = http://0.0.0.0:5004
-
-[kubejobs]
-k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf as default
-redis_ip = 10.0.0.1 # Optional value, gets the Ip of any node in the cluster if not specified
-```
-
-Description of the required variables:
-
-* **k8s_conf_path**: The path for the configuration file of the Kubernetes cluster that will be used.
-* **redis_ip**: ip of the one of the nodes contained in the Kubernetes clusters that will be used.
-
-3. Run the Asperathos-Manager service:
-
-```bash
-path/to/asperathos-manager$ ./run.sh
-```
-
-#### II. Configure the Monitor component to run KubeJobs plugin
-
-1. Access the Asperathos-Monitor folder:
-
-```bash
-$ cd path/to/asperathos-monitor
-```
-
-2. Modify the file ‘monitor.cfg’ with the required informations to run the KubeJobs plugin. You can check below an template of how the ‘monitor.cfg’ file should look like:
-
-```
-[general]
-host = 0.0.0.0
-port = 5001
-plugins = kubejobs
-debug = True
-retries = 5
-
-[monasca]
-monasca_endpoint = https://<monasca_url>:<monaca_port>/<version>
-username = user
-password = password
-project_name = demo
-auth_url = https://<monasca_url>:<monaca_port>/<version>/
-api_version = version
-
-[kubejobs]
-k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf as default
-```
-
-3. Run the Asperathos-Monitor service:
-
-```bash
-path/to/asperathos-monitor$ ./run.sh
-```
-
-#### III. Configure the Controller component to run KubeJobs plugin
-
-1. Access the Asperathos-Controller folder:
-
-```bash
-$ cd path/to/asperathos-controller
-```
-
-2. Modify the file ‘controller.cfg’ with the required informations to run the KubeJobs plugin. The KubeJobs plugin requires the k8s-replicas actuator to be activated as well as a specific metric_source_plugin. In this example we will use ‘monasca’ as metric_source_plugin. You can check below an template of how the ‘controller.cfg’ file should look like:
-
-```
-[general]
-host = 0.0.0.0
-port = 5000
-actuator_plugins = k8s_replicas
-metric_source_plugins = monasca
-
-[monasca]
-monasca_endpoint = https://monasca-url:port/v2.0
-username = user
-password = psswrd
-project_name = admin
-auth_url = https://monasca-url:port/v3/
-api_version = 2_0
-
-[k8s_replicas]
-k8s_manifest = /home/user/.kube/config # Optional value with ./data/conf as default
-```
-
-Description of the required variable:
-
-* **k8s_manifest**: The path for the configuration file of the Kubernetes cluster that will be used.
-
-3. Run the Asperathos-Controller service:
-
-```bash
-path/to/asperathos-controller$ ./run.sh
-```
-
-#### IV. Configure the Visualizer component to run KubeJobs plugin
-
-1. Access the Asperathos-Visualizer folder:
-
-```bash
-$ cd path/to/asperathos-visualizer
-```
-
-2. Modify the file ‘visualizer.cfg’ with the required informations to run the K8s-Grafana plugin. You can check below an template of how the ‘visualizer.cfg’ file should look like:
-
-```
-[general]
-host = 0.0.0.0
-port = 5002
-plugins = k8s-grafana
-datasources = monasca,influxdb
-debug = true
-retries = 5
-
-[k8s-grafana]
-k8s_conf_path = /home/user/.kube/config # Optional value with ./data/conf as default
-visualizer_ip = 10.11.5.62 # Optional value, gets the Ip of any node in the cluster if not specified
-
-[monasca]
-name = monasca
-type = monasca-datasource
-url = https://monasca-url:port
-access = proxy
-basic_auth = no
-auth_type = token
-token = 
-
-[influxdb]
-name = InfluxDB
-type = influxdb
-url = https://influxdb-url # Optional value, gets the Ip of any node in the cluster if not specified
-access = proxy
-```
-
-Description of the required variables:
-
-* **k8s_conf_path**: The path for the configuration file of the Kubernetes cluster that will be used. 
-* **visualizer_type**: The visualizer type that will be used
-* **visualizer_ip**: The IP where the visualizer will be accessible from. Needs to be the IP of one of the nodes contained in the Kubernetes cluster.
-
-If you want to use Monasca as Datasource, the following variables are required:
-
-* **name**: Name of the Datasource (usually gets the value of ‘monasca’)
-* **type**: Type of the Datasource (usually gets the value of ‘monasca-datasource’)
-* **url**: Address where Monasca service are answering from.
-* **access**: Access type (usually gets the value of ‘proxy’).
-* **basic_auth**: Enables the basic authentication (usually gets the value of ‘no’)
-* **auth_type**: The authentication type (can get the value of ‘token’)
-* **token**: The token of access to the service. Needs to be provided if the ‘auth_type’ variable get the value of ‘token’.
-
-If you want to use InfluxDB as Datasource, the following variables are required:
-
-* **name**: Name of the Datasource (usually gets the value of ‘InfluxDB’)
-* **type**: Type of the Datasource (usually gets the value of ‘influxdb’)
-* **url**: Address where InfluxDB service will be answering from (usually gets the value of the IP of one of the nodes contained in the Kubernetes cluster).
-* **access**: Access type (usually gets the value of ‘proxy’).
-
-3. Run the Asperathos-Visualizer service :
-
-```bash
-path/to/asperathos-visualizer$ ./run.sh
+docker-compose up
 ```
 
 ### How to submit a KubeJobs job?
