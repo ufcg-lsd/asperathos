@@ -221,7 +221,7 @@ CONTAINER ID        IMAGE                   NAMES
 
 ## 4. How to submit a KubeJobs job?
 
-First, create a file named ```kubejobs-job.json```. The content of this file will have all the necessary commands to activate each plugin of each Asperathos component. Also, this JSON file also contains information about the user credentials, workload that will be running, image that will be used and so on. You can check below a template of how the ```kubejobs-job.json``` file should look like:
+First, create a json file, we will name it ```kubejobs-job.json``` for instance. The content of this file will have all the necessary commands to activate each plugin of each Asperathos component. Also, this JSON file also contains information about the user credentials, workload that will be running, image that will be used and so on. You can check below a template of how the ```kubejobs-job.json``` file should look like:
 
 ```json
 {  
@@ -281,6 +281,8 @@ $ cd path/to/kubejobs.json
 $ curl -H "Content-Type: application/json" --data @kubejobs-job.json http://0.0.0.0:1500/submissions
 ```
 
+This will return the job id.
+
 If your Asperathos is running somewhere other than locally, change its address in the endpoint URL.
 
 ## 5. How collect the visualization URL of a specific job?
@@ -288,11 +290,9 @@ If your Asperathos is running somewhere other than locally, change its address i
 1. After a job is launched, with the visualization flag setted to ‘enable’, it is possible to retrieve the visualization URL to keep track of the job progress at execution time. The following GET request to the Visualizer api can be used to retrieve this information. 
 
 ```bash
-$ curl visualizer-ip:port/visualizing/id
+$ curl 0.0.0.0:5002/visualizing/<job id>
 ```
+If your Asperathos is running somewhere other than locally, change its address in the endpoint URL.
 
 Where:
-
-* **visualizer-ip**: The IP where the visualizer service are running.
-* **port**: The port where the visualizer service are answering from.
-* **id**: The ID of the job launched.
+* **job id**: The ID of the job launched.
