@@ -29,7 +29,7 @@ This independent architecture allot the combination of different approaches in t
 
 It is also possible to easily add external or new components, like: authenticators, authorizers, validators, and so on.
 
-# Case studies
+## Case studies
 
 
 <img src="https://www.lncc.br/images/logo_lncc.png" alt="drawing" width="30%"/>
