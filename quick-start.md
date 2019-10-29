@@ -167,7 +167,15 @@ $ curl https://get.docker.com/ | bash
 $ apt-get install docker-compose
 ```
 
-### 3.2. Clone Asperathos Compose repository
+If you want, use the command bellow to grant root access to your user when using `docker` commands in your terminal:
+
+```bash
+$ sudo usermod -a -G docker $USER
+```
+
+After that, log in and out from your session to update the changes.
+ 
+ ### 3.2. Clone Asperathos Compose repository
 
 ```bash
 $ git clone https://github.com/ufcg-lsd/asperathos-compose
@@ -183,7 +191,7 @@ $ export KUBECONFIG=/path/to/your/kube/config
 ```
 ### 3.5. Configuring the Asperathos components
 
-If you wish, more information on how to customize your Asperathos can be found in our detailed README file. In order to change such configurations you should edit the config files for each component available on ```controller.cfg```, ```manager.cfg```, ```monitor.cfg``` and ```visualizer.cfg``` in the *asperathos-compose* directory.
+If you wish, more information on how to customize your Asperathos can be found in our detailed User Guide file. In order to change such configurations you should edit the config files for each component available on ```controller.cfg```, ```manager.cfg```, ```monitor.cfg``` and ```visualizer.cfg``` in the *asperathos-compose* directory.
 
 For a simple installation you can skip this step.
 
@@ -196,7 +204,7 @@ $ ./build.sh
 ### 3.5. Run compose
 
 ```bash
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 Done! Your Asperathos is up and running :)
@@ -217,6 +225,12 @@ CONTAINER ID        IMAGE                   NAMES
 8c6afad539b7        asperathos_visualizer   asperathoscompose_visualizer_1
 4036dfweb209        asperathos_manager      asperathoscompose_manager_1
 367979qe4623        asperathos_controller   asperathoscompose_controller_1
+```
+
+To check the logs of the Manager component, for instance, run:
+
+```bash
+$ docker logs -f asperathoscompose_manager_1
 ```
 
 ## 4. How to submit a KubeJobs job?
