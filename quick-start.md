@@ -175,33 +175,33 @@ $ sudo usermod -a -G docker $USER
 
 After that, log in and out from your session to update the changes.
  
- ### 3.2. Clone Asperathos Compose repository
+ ### 4.2. Clone Asperathos Compose repository
 
 ```bash
 $ git clone https://github.com/ufcg-lsd/asperathos-compose
 $ cd asperathos-compose
 ```
 
-### 3.3. Set your KUBECONFIG env var
+### 4.3. Set your KUBECONFIG env var
 
 Remember the cluster we previously deployed in this tutorial? Get the config file generated there and set the following environment variable as follows:
 
 ```bash
 $ export KUBECONFIG=/path/to/your/kube/config
 ```
-### 3.4. Configuring the Asperathos components
+### 4.4. Configuring the Asperathos components
 
 If you wish, more information on how to customize your Asperathos can be found in our detailed User Guide file. In order to change such configurations you should edit the config files for each component available on ```controller.cfg```, ```manager.cfg```, ```monitor.cfg``` and ```visualizer.cfg``` in the *asperathos-compose* directory.
 
 For a simple installation you can skip this step.
 
-### 3.5. Build the images
+### 4.5. Build the images
 
 ```bash
 $ ./build.sh
 ```
 
-### 3.6. Run compose
+### 4.6. Run compose
 
 ```bash
 $ docker-compose up -d
@@ -209,7 +209,7 @@ $ docker-compose up -d
 
 Done! Your Asperathos is up and running :)
 
-### 3.7 Check the services
+### 4.7 Check the services
 
 You should have 4 new containers running the Asperathos components. Check that by running:
 
@@ -233,7 +233,7 @@ To check the logs of the Manager component, for instance, run:
 $ docker logs -f asperathoscompose_manager_1
 ```
 
-## 4. How to submit a KubeJobs job?
+## 5. How to submit a KubeJobs job?
 
 First, create a file named ```kubejobs-job.json```. The content of this file will have all the necessary commands to activate each plugin of each Asperathos component. Also, this JSON file also contains information about the user credentials, workload that will be running, image that will be used and so on. You can check below a template of how the ```kubejobs-job.json``` file should look like:
 
@@ -297,7 +297,7 @@ $ curl -H "Content-Type: application/json" --data @kubejobs-job.json http://0.0.
 
 If your Asperathos is running somewhere other than locally, change its address in the endpoint URL.
 
-## 5. How collect the visualization URL of a specific job?
+## 6. How collect the visualization URL of a specific job?
 
 1. After a job is launched, with the visualization flag setted to ‘enable’, it is possible to retrieve the visualization URL to keep track of the job progress at execution time. The following GET request to the Visualizer api can be used to retrieve this information. 
 
