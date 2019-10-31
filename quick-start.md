@@ -189,19 +189,19 @@ Remember the cluster we previously deployed in this tutorial? Get the config fil
 ```bash
 $ export KUBECONFIG=/path/to/your/kube/config
 ```
-### 3.5. Configuring the Asperathos components
+### 3.4. Configuring the Asperathos components
 
 If you wish, more information on how to customize your Asperathos can be found in our detailed User Guide file. In order to change such configurations you should edit the config files for each component available on ```controller.cfg```, ```manager.cfg```, ```monitor.cfg``` and ```visualizer.cfg``` in the *asperathos-compose* directory.
 
 For a simple installation you can skip this step.
 
-### 3.4. Build the images
+### 3.5. Build the images
 
 ```bash
 $ ./build.sh
 ```
 
-### 3.5. Run compose
+### 3.6. Run compose
 
 ```bash
 $ docker-compose up -d
@@ -209,7 +209,7 @@ $ docker-compose up -d
 
 Done! Your Asperathos is up and running :)
 
-### 3.6 Check the services
+### 3.7 Check the services
 
 You should have 4 new containers running the Asperathos components. Check that by running:
 
