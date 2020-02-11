@@ -240,6 +240,7 @@ First, create a file named ```kubejobs-job.json```. The content of this file wil
 ```json
 {  
    "plugin":"kubejobs",
+   "enable_auth":false,
    "plugin_info":{  
       "username": "user",
       "password": "psswrd",
@@ -247,11 +248,13 @@ First, create a file named ```kubejobs-job.json```. The content of this file wil
          ...
       ],
       "img": "img-url:port",
+      "job_resource_lifetime": 300,
       "init_size": 1,      
       "redis_workload": "workload-url",
       "config_id": "id",
       "control_plugin": "kubejobs",
-      "control_parameters": {  
+      "control_parameters": {
+         "schedule_strategy": "default",    
          "max_size": 10,
          "actuator": "k8s_replicas",
          "check_interval": 5,
