@@ -1,19 +1,19 @@
 [submodule "manager"]
 	path = manager
 	url = https://github.com/ufcg-lsd/asperathos-manager
-	branch = bootes
+	branch = draco
 [submodule "controller"]
 	path = controller
 	url = https://github.com/ufcg-lsd/asperathos-controller
-	branch = bootes
+	branch = draco
 [submodule "monitor"]
 	path = monitor
 	url = https://github.com/ufcg-lsd/asperathos-monitor
-	branch = bootes
+	branch = draco
 [submodule "visualizer"]
 	path = visualizer
 	url = https://github.com/ufcg-lsd/asperathos-visualizer
-	branch = bootes
+	branch = draco
 [submodule "integration-tests"]
 	path = integration-tests
 	url = https://github.com/ufcg-lsd/asperathos-integration-tests
