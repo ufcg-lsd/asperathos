@@ -5,6 +5,8 @@
 
 Asperathos is a platform to facilitate the deployment and control of applications running in cloud environments. For example, it can provide Quality of Service (QoS) by controlling resources allocated during runtime. Nevertheless, in contrast to other orchestration tools, such as Kubernetes itself or OpenStack Heat, it can be configured to consider application specific metrics and to actuate in a customized fashion. 
 
+![Asperathos Context](../imgs/context-asperathos.png)
+
 The purpose of this user guide is to show how correctly deploy each of the Asperathos components as well as demonstrate how to implement features in the components to fulfill a goal a specific context.
 
 The requirements to run this user guide are the following: 
@@ -18,9 +20,11 @@ The requirements to run this user guide are the following:
 
 The architecture from Asperathos is depicted in the following figure. The platform follows the REST architecture for submissions and is composed by three main modules and one optional module: **(i)** the Manager is the entry point for the user and is responsible for receiving an application submission, triggering all other steps; **(ii)** the Monitor gather, transform and publish metrics collected from applications (e.g., the application progress) or environment resources (e.g., CPU usage); **(iii)** the Controller is the component that adjusts the amount of allocated resources dedicated to an application; **(iv)** the Visualizer, the unique optional component of the system, leverages existing tools to provide rich visualizations of the applications being run by Asperathos. 
 
-![Asperathos Architecture](imgs/asperathos-archtecture.png)
+![Asperathos Architecture](../imgs/asperathos-archtecture.png)
 
-Each module above can be customized by plugins. For example, a plugin to deploy the application can be specified in the Manager, another to define the application specific metric can be specified in the Monitor, another to control the actuation logic could be configured in the Controller, another to launch a specific visualization platform and so on. 
+Each module above can be customized by plugins. For example, a plugin to deploy the application can be specified in the Manager, another to define the application specific metric can be specified in the Monitor, another to control the actuation logic could be configured in the Controller, another to launch a specific visualization platform and so on.
+
+![Asperathos Containers](../imgs/containers-asperathos.png)
 
 In the following sections each of the Asperathos components above mentioned will be described in more details: 
 
