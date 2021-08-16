@@ -5,7 +5,7 @@ The purpose of this guide is to demonstrate how to easily setup all Asperathos c
 ## 1. Requirements 
 
 1. Have a Kubernetes cluster ready to receive applications;
-2. Have an application image capable consuming items from a ```redis``` workload (see [flow of items in redis](job-item-flow.md));
+2. Have an application image capable of consuming items from a ```redis``` workload (see [flow of items in redis](job-item-flow.md));
 3. Configure a requirements file for your application.
 
 ## 2. Creating a Kubernetes cluster
