@@ -112,7 +112,7 @@ while r.llen("job") > 0:
     print(content)
 ```
 
-The recommended approach is a little more complex, and consists of the application managing `redis` three redis queues: `main`, `processing` and `results`. See our in-depth [information view](job-item-flow.md) on how to deal with this for more insights.
+The recommended approach is a little more complex, and consists of the application managing three `redis` queues: `main`, `processing` and `results`. See our in-depth [information view](job-item-flow.md) on how to deal with this for more insights.
 
 ### 3.2. Creating a requirements file:
 
